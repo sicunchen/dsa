@@ -10,5 +10,5 @@ If we sum all symbols, the result would be 2M+C, but the correct sum is M+M-C=2M
 
 As we accumulate the sum, if the current letter's value is smaller than the next value, subtract the current value.
 
-**Time complexity**: O(n)
-**Space complexity**: O(1)
+**Time**: O(n)\
+**Space**: O(1)
