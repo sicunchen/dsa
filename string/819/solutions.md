@@ -5,5 +5,5 @@ https://leetcode.com/problems/most-common-word/
 3. Count each word's freq
 4. Initialize a maxFreq=0, result="". Loop thru the counter object, if the current word is not in the banned set and its freq is bigger than the maxFreq, then result is the current word.
 
-Time: 0(n)
+Time: O(n)
 Space: O(n)
