@@ -24,3 +24,23 @@ var postorderTraversal = function(root) {
   }
   return result.reverse();
 };
+
+
+//solution 3
+var postorderTraversal = function (root) {
+    let result = [];
+    let stack = [];
+    if (root) stack.push([root, false]);
+    while (stack.length !== 0) {
+        const [curr, visited] = stack.pop();
+        if (visited) {
+            result.push(curr.val);
+        } else {
+            stack.push([curr, true]);
+            if (curr.right) stack.push([curr.right, false]);
+            if (curr.left) stack.push([curr.left, false]);
+        }
+
+    }
+    return result;
+};
