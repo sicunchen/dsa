@@ -60,3 +60,31 @@ class MinStack {
     return this.head ? this.head.currMin : null;
   }
 }
+
+//solution 3
+class MinStack {
+  constructor() {
+    this.stack = [];
+    this.mins = [Infinity];
+  }
+
+  push(x) {
+    if (x <= this.getMin()) {
+      this.mins.push(x);
+    }
+    this.stack.push(x);
+  }
+  pop() {
+    const elem = this.stack.pop();
+    if (elem === this.getMin()) {
+      this.mins.pop();
+    }
+  }
+  top() {
+    return this.stack[this.stack.length - 1];
+  }
+
+  getMin() {
+    return this.mins[this.mins.length - 1];
+  }
+}

@@ -1,6 +1,5 @@
 # solution 1
 class MinStack:
-
     def __init__(self):
         """
         initialize your data structure here.
@@ -54,3 +53,29 @@ class MinStack:
 
     def getMin(self):
         return None if self.head is None else self.head.currMin
+
+
+# solution 3
+class MinStack:
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.mins = [float("inf")]
+        self.stack = []
+
+    def push(self, x: int) -> None:
+        if x <= self.mins[-1]:
+            self.mins.append(x)
+        self.stack.append(x)
+
+    def pop(self) -> None:
+        elem = self.stack.pop()
+        if elem == self.mins[-1]:
+            self.mins.pop()
+
+    def top(self) -> int:
+        return self.stack[-1]
+
+    def getMin(self) -> int:
+        return self.mins[-1]
