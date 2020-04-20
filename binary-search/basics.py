@@ -43,6 +43,7 @@ def findFirst(self, nums, target):
         mid = start + (end - start) // 2
         if target == nums[mid]:
             # 注意可能出现多次，所以当找到这个数字的时候不能直接结束，而要将end移动到mid处。
+            # 如果是找其中一个数就可以。如果是找第一个出现或者最后一个出现就不行，得考虑应该是往左找还是往右找
             end = mid
         elif target > nums[mid]:
             start = mid
@@ -127,4 +128,3 @@ def findRange(self, nums, target):
     else:
         return [-1, -1]
     return [first_pos, last_pos]
-
