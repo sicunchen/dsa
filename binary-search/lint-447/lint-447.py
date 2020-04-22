@@ -6,33 +6,8 @@ class Solution:
     """
 
     def searchBigSortedArray(self, reader, target):
-        # write your code here
-        start = 0
-        index = 1
-        while reader.get(index) < target:
-            index = index * 2
-
-        # now we have un upper bound
-        start, end = index // 2, index
-
-        while start + 1 < end:
-            mid = start + (end - start) // 2
-            if target <= reader.get(mid):
-                end = mid
-            else:
-                start = mid
-
-        # find the first position of the target in the search space
-        if reader.get(start) == target:
-            return start
-        elif reader.get(end) == target:
-            return end
-        return -1
-
-        # 老师的写法：
-
-    def searchBigSortedArray1(self, reader, target):
         kth = 1
+        # 用倍增法在O(log(k))时间内找到右边界
         while reader.get(kth - 1) < target:
             kth = kth * 2
 
@@ -40,7 +15,7 @@ class Solution:
         # 因为写为 0 也不会影响时间复杂度
         start, end = 0, kth - 1
         while start + 1 < end:
-            mid = start + (end - start) // 2
+            mid = (start + end) // 2
             if reader.get(mid) < target:
                 start = mid
             else:
@@ -50,3 +25,9 @@ class Solution:
         if reader.get(end) == target:
             return end
         return -1
+
+
+"""
+倍增法O(logk), binary search O(logk), 总体用时O(logk)
+"""
+
