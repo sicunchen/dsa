@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/peak-index-in-a-mountain-array/
 class Solution:
     def peakIndexInMountainArray(self, A: List[int]) -> int:
         start = 0
@@ -13,4 +14,3 @@ class Solution:
             return start
         else:
             return end
-
