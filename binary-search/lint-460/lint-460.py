@@ -1,3 +1,4 @@
+# https://www.lintcode.com/problem/find-k-closest-elements/?_from=ladder&&fromId=1
 class Solution:
     """
     @param A: an integer array
