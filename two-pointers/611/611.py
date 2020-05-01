@@ -1,4 +1,10 @@
 # https://leetcode.com/problems/valid-triangle-number/
+"""
+Time: O(nlogn)
+Space: O(1)
+"""
+
+
 class Solution:
     def triangleNumber(self, nums: List[int]) -> int:
         nums.sort()
@@ -12,4 +18,3 @@ class Solution:
                 else:
                     left += 1
         return ans
-

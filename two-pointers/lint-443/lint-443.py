@@ -1,4 +1,10 @@
 # https://www.lintcode.com/problem/two-sum-greater-than-target/description?_from=ladder&&fromId=1
+"""
+Time: O(nlogn+n)->O(nlogn)
+Space: O(1)
+"""
+
+
 class Solution:
     """
     @param nums: an array of integer

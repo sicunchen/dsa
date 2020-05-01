@@ -1,5 +1,10 @@
 # https://www.lintcode.com/problem/two-sum-unique-pairs/description?_from=ladder&&fromId=1
 
+"""
+Time: O(nlogn)
+Space: O(1)
+"""
+
 
 class Solution:
     """

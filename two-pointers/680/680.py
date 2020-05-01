@@ -1,5 +1,10 @@
 # https://leetcode.com/problems/valid-palindrome-ii/
 
+"""
+Time: O(n)
+Space:O(1)
+"""
+
 
 class Solution:
     def validPalindrome(self, s: str) -> bool:

@@ -1,7 +1,7 @@
 # https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 
 """
-首先我们对数组进行排序。
+首先我们对数组进行排序 （此题已经排好序了）。
 用两个指针(L, R)从左右开始：
 如果numbers[L] + numbers[R] == target, 说明找到，返回对应的数。
 如果numbers[L] + numbers[R] < target, 此时L指针右移，只有这样才可能让和更大。

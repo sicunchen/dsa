@@ -1,5 +1,10 @@
 # https://www.lintcode.com/problem/two-sum-closest-to-target/description?_from=ladder&&fromId=1
 
+"""
+Time: O(nlogn+n)->O(nlogn)
+Space: O(1)
+"""
+
 
 class Solution:
     """

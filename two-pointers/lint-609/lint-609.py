@@ -1,6 +1,7 @@
 # https://www.lintcode.com/problem/two-sum-less-than-or-equal-to-target/description?_from=ladder&&fromId=1
 """
-排序后双zhizhen
+Time: O(nlogn)
+Space: O(1)
 """
 
 
