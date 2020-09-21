@@ -34,10 +34,11 @@ class Solution:
 
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:  #
-        if not needle:
-            return 0
+        if haystack is None or needle is None:
+            return -1
         m, n = len(needle), len(haystack)
-
+        if m == 0:
+            return 0
         HASH_SIZE, BASE = 10 ** 6, 31
         # 31^m
         power = 1
@@ -63,4 +64,3 @@ class Solution:
                 if haystack[i - m + 1 : i + 1] == needle:
                     return i - m + 1
         return -1
-

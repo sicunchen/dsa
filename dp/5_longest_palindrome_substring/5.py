@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/longest-palindromic-substring/
 # solution 1: brute force. Basically check every substring to see it's a palindrome. O(N^3). TLE
 # class Solution:
 #     def longestPalindrome(self, s: str) -> str:
@@ -84,6 +85,7 @@ class Solution:
 x[...]y是回文串的条件：x==y&&中间...这一段是回文串
 isPalindrome[i][j]表示i到j这一段子串是不是回文串
 isPalindrome[i][j]=isPalindrome[i+1][j-1]&&s[i]==s[j]
+
 """
 
 
@@ -93,21 +95,34 @@ class Solution:
             return None
 
         n = len(s)
+        # 1. 先创建一个二维数组DP， 全部置为False， 同时设置最大回文串长度为0以及其初始位置
         is_palindrome = [[False] * n for _ in range(n)]
+        maxLen = 0
+        maxStartIndex = 0
 
+        # 2. 循环第一遍， 把对角线置为True, 因为每单个字符都构成长度为1的回文串
         for i in range(n):
             is_palindrome[i][i] = True
-        for i in range(1, n):
-            is_palindrome[i][i - 1] = True
+            maxLen = 1
+            maxStartIndex = i
 
-        longest, start, end = 1, 0, 0
-        for length in range(1, n):
-            for i in range(n - length):
-                j = i + length
-                is_palindrome[i][j] = s[i] == s[j] and is_palindrome[i + 1][j - 1]
-                if is_palindrome[i][j] and length + 1 > longest:
-                    longest = length + 1
-                    start, end = i, j
+        # 3. 循环第二遍， 把连续两个字母相同出现的情况置为True
+        for i in range(n - 1):
+            if s[i] == s[i + 1]:
+                is_palindrome[i][i + 1] = True
+                maxLen = 2
+                maxStartIndex = i
+        # 4. 两重循环， 根据动规转移方程写完剩下的DP矩阵，一边写一边更新最大回文串长度和初始位置
+        for curLen in range(3, n + 1):
+            for startIndex in range(n - curLen + 1):
+                endIndex = startIndex + curLen - 1
+                is_palindrome[startIndex][endIndex] = (
+                    s[startIndex] == s[endIndex]
+                    and is_palindrome[startIndex + 1][endIndex - 1]
+                )
+                # 5. 打擂台， 取出最大的回文串长度和其初始位置， 返回结果
+                if is_palindrome[startIndex][endIndex] and curLen > maxLen:
+                    maxLen = curLen
+                    maxStartIndex = startIndex
 
-        return s[start : end + 1]
-
+        return s[maxStartIndex : maxStartIndex + maxLen]
